@@ -1,6 +1,7 @@
 package lab03.shapes;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * A DrawableObjectList is a collection of Objects that implement the Drawable
@@ -10,10 +11,13 @@ import java.awt.*;
  */
 public class DrawableObjectList {
 
+	private ArrayList<Drawable> theList;
+
     /**
      * Construct a new empty DrawableObjectList.
      */
     public DrawableObjectList() {
+    	theList = new ArrayList<Drawable>();
     }
 
     /**
@@ -22,7 +26,7 @@ public class DrawableObjectList {
      * @return the size of the list.
      */
     public int getSize() {
-        return -1;
+        return theList.size();
     }
 
     /**
@@ -31,6 +35,7 @@ public class DrawableObjectList {
      * @param obj the Drawable object to be added.
      */
     public void addDrawable(Drawable obj) {
+    	theList.add(obj);
     }
 
     /**
@@ -40,6 +45,7 @@ public class DrawableObjectList {
      * @param obj the Drawable object to remove.
      */
     public void removeDrawable(Drawable obj) {
+    	theList.remove(obj);
     }
 
     /**
@@ -52,6 +58,11 @@ public class DrawableObjectList {
      * @param g the Graphics object on which to draw the objects.
      */
     public void drawAll(Graphics g) {
+    	for (Drawable theObj : theList) {
+    		if (theObj.isVisible()) {
+    			theObj.draw(g);
+    		}
+    	}
     }
 
     /**
@@ -63,5 +74,11 @@ public class DrawableObjectList {
      * @param factor the factor by which to scale the Scaleable objects.
      */
     public void scaleAll(double factor) {
+    	for (Drawable obj : theList) {
+    		if (obj instanceof Scaleable) {
+    			Scaleable obj2 = (Scaleable) obj;
+    			obj2.scale(factor);
+    		}
+    	}
     }
 }
