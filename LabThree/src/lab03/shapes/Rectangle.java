@@ -4,16 +4,16 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * A Square is an object representing a square. A Square has a top-left point
- * (x,y), a side length and a color. It can be moved, translated, scaled and drawn.
+ * A Rectangle is an object representing a square. A Rectangle has a top-left point
+ * (x,y), a width, a height, and a color. It can be moved, translated, and drawn.
  * @author Gregory Edwards and Colin Wlodkowski
  * @version 9/20/2017
  */
-
-public class Square implements Drawable, Scaleable{
+public class Rectangle implements Drawable{
 	private int x;
 	private int y;
-	private int sideLength;
+	private int width;
+	private int height;
 	private Color theColor;
 	private boolean isVisible;
 	
@@ -25,10 +25,11 @@ public class Square implements Drawable, Scaleable{
 	 * @param initSideLength initial side length of Square
 	 * @param aColor initial color of Square
 	 */
-	public Square(int initX, int initY, int initSideLength, Color aColor) {
+	public Rectangle(int initX, int initY, int initWidth, int initHeight, Color aColor) {
 		x = initX;
 		y = initY;
-		sideLength = initSideLength;
+		width = initWidth;
+		height = initHeight;
 		theColor = aColor;
 		isVisible = true;
 	}
@@ -50,11 +51,19 @@ public class Square implements Drawable, Scaleable{
 	}
 	
 	/**
-	 * returns the length of each side of the Square.
-	 * @return the sideLength
+	 * returns the width of the Rectangle
+	 * @return width
 	 */
-	public int getSideLength() {
-		return sideLength;
+	public int getWidth() {
+		return width;
+	}
+	
+	/**
+	 * returns the height of the Rectangle
+	 * @return height
+	 */
+	public int getHeight() {
+		return height;
 	}
 	
 	/**
@@ -84,12 +93,22 @@ public class Square implements Drawable, Scaleable{
     }
 	
 	/**
-	 * Sets sideLength to specified value. If value is less than or equal to 0 the value is not changed. 
-	 * @param newSideLength new sideLength
+	 * Sets width to specified value. If newWidth is less than or equal to 0 the width should not change.
+	 * @param newwidth new width
 	 */
-	public void setSideLength(int newSideLength) {
-		if(newSideLength > 0) {
-			sideLength = newSideLength;
+	public void setWidth(int newWidth) {
+		if(newWidth > 0) {
+			width = newWidth;
+		}
+	}
+	
+	/**
+	 * Sets height to specified value. If newHeight is less than or equal to 0 the width should not change.
+	 * @param newHeight new height
+	 */
+	public void setHeight(int newHeight) {
+		if(newHeight > 0) {
+			height = newHeight;
 		}
 	}
 	
@@ -124,20 +143,6 @@ public class Square implements Drawable, Scaleable{
 		y = y + yCo;
 	}
 	
-	// === Implementation of the Scaleable interface ===
-	/**
-     * Scale this Square by the specified factor. For example a factor of 2.0
-     * will make the sideLength twice as long and a factor of 0.5 will make it half
-     * as long. If the factor is negative the sideLength is not changed.
-     * 
-     * @param factor the factor by which this Square is to be scaled.
-     */
-	public void scale (double factor) {
-		if (factor > 0) {
-			sideLength  = (int) (Math.round(sideLength * factor));
-		}
-	}
-	
 	// === Implementation of the Drawable interface ===
 	/**
      * Draw this DrawableSquare onto the specified Graphics object.
@@ -146,6 +151,6 @@ public class Square implements Drawable, Scaleable{
      */
     public void draw(Graphics g) {
     	g.setColor(getColor());
-    	g.fillRect(getX(), getY(), getX()+getSideLength(), getY()+getSideLength());
+    	g.fillRect(getX(), getY(), getX()+getWidth(), getY()+getHeight());
     }
 }

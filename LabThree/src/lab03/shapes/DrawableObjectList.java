@@ -8,6 +8,9 @@ import java.util.ArrayList;
  * interface. This class is used by the DrawingTablet to maintain the list of
  * objects to be drawn on the screen. This class also provides methods for
  * drawing or scaling all of the objects.
+ * @author Dickinson College
+ * @author Gregory Edwards and Colin Wlodkowski
+ * @version 9/20/2017
  */
 public class DrawableObjectList {
 

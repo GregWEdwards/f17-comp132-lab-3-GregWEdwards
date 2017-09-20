@@ -34,7 +34,7 @@ public class RedLight {
          * Each time a change is made to the DrawableObjectList or to one of
          * the Drawable objects that it contains you need to invoke repaint() 
          * on the DrawingTablet.  This causes the Drawing tablet to repaint
-         * the scrren reflecting the chages. 
+         * the scrren reflecting the chages.
          */
         tablet.repaint();
         
