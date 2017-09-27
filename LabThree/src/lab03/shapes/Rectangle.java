@@ -151,6 +151,7 @@ public class Rectangle implements Drawable{
      */
     public void draw(Graphics g) {
     	g.setColor(getColor());
-    	g.fillRect(getX(), getY(), getX()+getWidth(), getY()+getHeight());
+    	g.drawRect(getX(), getY(), getWidth(), getHeight());
+    	g.fillRect(getX(), getY(), getWidth(), getHeight());
     }
 }

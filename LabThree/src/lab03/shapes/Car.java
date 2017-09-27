@@ -16,12 +16,12 @@ public class Car {
 	 */
 	public static void main(String[] args) {
 		DrawableObjectList objList = new DrawableObjectList();
-        DrawingTablet tablet = new DrawingTablet("Bullseye", 600, 400, objList);
-        Square s1 = new Square(125,325,200,Color.RED); //Car Square
-        Square s2 = new Square(125,300,50,Color.BLUE); //Window Square
-        Rectangle r1 = new Rectangle(50,425,350,100,Color.RED);
-        Circle c1 = new Circle(77,525,25,Color.BLACK); //Front Wheel
-        Circle c2 = new Circle(362,525,25,Color.BLACK); //Rear Wheel
+        DrawingTablet tablet = new DrawingTablet("Bullseye",800, 600, objList);
+        Square s1 = new Square(300, 200, 200, Color.RED); //Car Square
+        Square s2 = new Square(312, 212, 60, Color.WHITE); //Window Square
+        Rectangle r1 = new Rectangle(200, 275, 400, 125, Color.RED);
+        Circle c1 = new Circle(275, 400, 40, Color.BLACK); //Front Wheel
+        Circle c2 = new Circle(525, 400, 40, Color.BLACK); //Rear Wheel
         
         objList.addDrawable(s1);
         objList.addDrawable(r1);

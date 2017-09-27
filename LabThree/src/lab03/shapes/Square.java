@@ -146,6 +146,8 @@ public class Square implements Drawable, Scaleable{
      */
     public void draw(Graphics g) {
     	g.setColor(getColor());
-    	g.fillRect(getX(), getY(), getX()+getSideLength(), getY()+getSideLength());
+    	g.drawRect(getX(), getY(), getSideLength(), getSideLength());
+    	g.fillRect(getX(), getY(), getSideLength(), getSideLength());
+    	//g.fillRect(getX(), getY(), getX()+getSideLength(), getY()+getSideLength());
     }
 }
